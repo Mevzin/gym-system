@@ -62,7 +62,7 @@ const Login = () => {
 						/>
 					</InputText>
 				</FormInputs>
-				<ButtonAccess onClick={(e) => handlerLogin()}>Acessar</ButtonAccess>
+				<ButtonAccess>Acessar</ButtonAccess>
 				<LineWrapper>
 					<Line></Line>
 					Ou
