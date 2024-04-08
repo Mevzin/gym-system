@@ -13,29 +13,23 @@ import {
 } from "./styles";
 
 import { FcGoogle } from "react-icons/fc";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+import { loginUser } from "../../services/api";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	console.log(email, password);
-
-	function handlerLogin() {
-		console.log("foi");
-		toast.warn("🦄 Wow so easy!", {
-			position: "top-left",
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: "light",
-			transition: Bounce,
-		});
+	let user: any;
+	async function handlerLogin() {
+		// if(!email || !password)
 		try {
-		} catch (error) {}
+			user = await loginUser(email, password);
+		} catch (error) {
+			console.log(error);
+		}
+		console.log(user);
 	}
 
 	return (
@@ -62,7 +56,7 @@ const Login = () => {
 						/>
 					</InputText>
 				</FormInputs>
-				<ButtonAccess>Acessar</ButtonAccess>
+				<ButtonAccess onClick={handlerLogin}>Acessar</ButtonAccess>
 				<LineWrapper>
 					<Line></Line>
 					Ou

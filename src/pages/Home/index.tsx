@@ -1,7 +1,12 @@
+import SideBarNavigation from "../../components/SideBarNavigation";
+import { Container } from "./styles";
+
 const Home = () => {
-  return(
-    <div>Home</div>
-  )
-}
+	return (
+		<Container>
+			<SideBarNavigation />
+		</Container>
+	);
+};
 
 export default Home;
